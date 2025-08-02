@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Appointment;
+use App\Models\Location;
 use App\Models\User;
 use App\Models\PolicyRule;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -47,13 +48,30 @@ class DatabaseSeeder extends Seeder
         Appointment::create([
             'name' => 'Appointment 1',
             'state' => 'draft',
+            'user_id' => '1',
+            'location_id' => '1'
         ]);
 
         // Create a test appointment
         Appointment::create([
             'name' => 'Appointment 2',
             'state' => 'draft',
+            'user_id' => '1',
+            'location_id' => '2'
         ]);
 
+        // Create a test location
+        Location::create([
+            'city' => 'CDO',
+            'state' => 'Mis Or',
+            'country' => 'Philippines',
+        ]);
+
+        // Create a test location
+        Location::create([
+            'city' => 'Iligan',
+            'state' => 'Mis Or',
+            'country' => 'Philippines',
+        ]);
     }
 }

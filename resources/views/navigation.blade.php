@@ -10,7 +10,7 @@
         </div>
 
         <div class="navbar-auth">
-            <a href="/" class="btn btn-login flex items-center">
+            <a href="/search" class="btn btn-login flex items-center">
                 2. Nested Eloquent Search Filter
             </a>
         </div>

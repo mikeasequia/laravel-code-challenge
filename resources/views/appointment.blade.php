@@ -4,7 +4,6 @@
 @section('childContent')
     <div class="container py-5">
         <div class="row justify-content-center">
-
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-body">
@@ -12,7 +11,6 @@
                             <div class="navbar-auth mb-2">
                                 {{ $a->name }}
                                 <a class="btn btn-primary" href="/appointments/{{$a->id}}">
-
                                     View
                                 </a>
                             </div>
@@ -37,19 +35,21 @@
                                 </form>
                             @endif
 
-                            @if(in_array('approved', App\Models\Appointment::$states[$appointment->state]))
-                                <form method="POST" action="{{ route('appointments.approve', $appointment) }}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-info">Approve</button>
-                                </form>
-                            @endif
+                            <div class="justify-center d-flex">
+                                @if(in_array('approved', App\Models\Appointment::$states[$appointment->state]))
+                                    <form method="POST" action="{{ route('appointments.approve', $appointment) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-success me-1">Approve</button>
+                                    </form>
+                                @endif
 
-                            @if(in_array('rejected', App\Models\Appointment::$states[$appointment->state]))
-                                <form method="POST" action="{{ route('appointments.reject', $appointment) }}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">Reject</button>
-                                </form>
-                            @endif
+                                @if(in_array('rejected', App\Models\Appointment::$states[$appointment->state]))
+                                    <form method="POST" action="{{ route('appointments.reject', $appointment) }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                    </form>
+                                @endif
+                            </div>                            
                         </div>
                     </div>
                 </div>
