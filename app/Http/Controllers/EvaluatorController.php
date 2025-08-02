@@ -17,8 +17,9 @@ class EvaluatorController extends Controller
 
     public function index()
     {
-        $users = User::all();
-        return view('rule-evaluator', compact('users'));
+        return view('rule-evaluator', [
+            'users'=> User::all()
+        ]);
     }
 
     public function submitForm(Request $request)
